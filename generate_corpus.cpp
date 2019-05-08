@@ -439,6 +439,8 @@ int main(int argc, char** argv)
 
     static const std::vector<uint64_t> moduleIDs = {
         ID("Cryptofuzz/Module/OpenSSL"),
+        ID("Cryptofuzz/Module/libsodium"),
+        ID("Cryptofuzz/Module/EverCrypt")
     };
 
     // TEST -- generate_SymmetricEncrypt_inner(corpusDirectory, 2, 0, 4, ID("Cryptofuzz/Cipher/RC4_40"), 0, ID("Cryptofuzz/Module/OpenSSL"));

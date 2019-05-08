@@ -20,6 +20,8 @@ int main(void)
 
     FILE* fp = fopen("cryptofuzz-dict.txt", "wb");
 
+    write(fp, ID("Cryptofuzz/Module/EverCrypt") );
+    write(fp, ID("Cryptofuzz/Module/libsodium") );
     write(fp, ID("Cryptofuzz/Module/OpenSSL") );
     write(fp, ID("Cryptofuzz/Module/mbed TLS") );
     write(fp, ID("Cryptofuzz/Module/Public Domain") );
