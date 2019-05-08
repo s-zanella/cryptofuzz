@@ -38,6 +38,7 @@ void Driver::Run(const uint8_t* data, const size_t size) const {
             case    ID("Cryptofuzz/Operation/Digest"):
                 executorDigest.Run(ds, payload.data(), payload.size());
                 break;
+#if 0
             case    ID("Cryptofuzz/Operation/HMAC"):
                 executorHMAC.Run(ds, payload.data(), payload.size());
                 break;
@@ -50,7 +51,6 @@ void Driver::Run(const uint8_t* data, const size_t size) const {
             case    ID("Cryptofuzz/Operation/SymmetricDecrypt"):
                 executorSymmetricDecrypt.Run(ds, payload.data(), payload.size());
                 break;
-#if 0
             case    ID("Cryptofuzz/Operation/KDF_SCRYPT"):
                 executorKDF_SCRYPT.Run(ds, payload.data(), payload.size());
                 break;
