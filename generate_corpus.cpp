@@ -15,28 +15,28 @@ static const std::vector<size_t> sizes = {
 };
 
 static const std::vector<uint64_t> digestTypes = {
-    ID("Cryptofuzz/Module/OpenSSL"),
-    ID("Cryptofuzz/Digest/SHA1"),
-    ID("Cryptofuzz/Digest/SHA224"),
+    //ID("Cryptofuzz/Module/OpenSSL"),
+    //ID("Cryptofuzz/Digest/SHA1"),
+    //ID("Cryptofuzz/Digest/SHA224"),
     ID("Cryptofuzz/Digest/SHA256"),
-    ID("Cryptofuzz/Digest/SHA384"),
+    //ID("Cryptofuzz/Digest/SHA384"),
     ID("Cryptofuzz/Digest/SHA512"),
-    ID("Cryptofuzz/Digest/MD4"),
-    ID("Cryptofuzz/Digest/MD5"),
-    ID("Cryptofuzz/Digest/MDC2"),
-    ID("Cryptofuzz/Digest/RIPEMD160"),
-    ID("Cryptofuzz/Digest/WHIRLPOOL"),
-    ID("Cryptofuzz/Digest/SM3"),
-    ID("Cryptofuzz/Digest/BLAKE2B512"),
-    ID("Cryptofuzz/Digest/BLAKE2S256"),
-    ID("Cryptofuzz/Digest/SHAKE128"),
-    ID("Cryptofuzz/Digest/SHAKE256"),
-    ID("Cryptofuzz/Digest/SHA3-224"),
-    ID("Cryptofuzz/Digest/SHA3-256"),
-    ID("Cryptofuzz/Digest/SHA3-384"),
-    ID("Cryptofuzz/Digest/SHA3-512"),
-    ID("Cryptofuzz/Digest/SHA512-224"),
-    ID("Cryptofuzz/Digest/SHA512-256"),
+    //ID("Cryptofuzz/Digest/MD4"),
+    //ID("Cryptofuzz/Digest/MD5"),
+    //ID("Cryptofuzz/Digest/MDC2"),
+    //ID("Cryptofuzz/Digest/RIPEMD160"),
+    //ID("Cryptofuzz/Digest/WHIRLPOOL"),
+    //ID("Cryptofuzz/Digest/SM3"),
+    //ID("Cryptofuzz/Digest/BLAKE2B512"),
+    //ID("Cryptofuzz/Digest/BLAKE2S256"),
+    //ID("Cryptofuzz/Digest/SHAKE128"),
+    //ID("Cryptofuzz/Digest/SHAKE256"),
+    //ID("Cryptofuzz/Digest/SHA3-224"),
+    //ID("Cryptofuzz/Digest/SHA3-256"),
+    //ID("Cryptofuzz/Digest/SHA3-384"),
+    //ID("Cryptofuzz/Digest/SHA3-512"),
+    //ID("Cryptofuzz/Digest/SHA512-224"),
+    //ID("Cryptofuzz/Digest/SHA512-256"),
 };
 
 static const std::vector<uint64_t> cipherTypes = {
@@ -447,9 +447,9 @@ int main(int argc, char** argv)
 
     for (const auto& moduleID : moduleIDs) {
         generate_Digest(corpusDirectory, moduleID);
-        generate_HMAC(corpusDirectory, moduleID);
-        generate_CMAC(corpusDirectory, moduleID);
-        generate_SymmetricEncrypt(corpusDirectory, moduleID);
+        //generate_HMAC(corpusDirectory, moduleID);
+        //generate_CMAC(corpusDirectory, moduleID);
+        //generate_SymmetricEncrypt(corpusDirectory, moduleID);
     }
 
     return 0;
