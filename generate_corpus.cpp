@@ -15,14 +15,13 @@ static const std::vector<size_t> sizes = {
 };
 
 static const std::vector<uint64_t> digestTypes = {
-    //ID("Cryptofuzz/Module/OpenSSL"),
-    //ID("Cryptofuzz/Digest/SHA1"),
-    //ID("Cryptofuzz/Digest/SHA224"),
+    ID("Cryptofuzz/Digest/SHA1"),
+    ID("Cryptofuzz/Digest/SHA224"),
     ID("Cryptofuzz/Digest/SHA256"),
-    //ID("Cryptofuzz/Digest/SHA384"),
+    ID("Cryptofuzz/Digest/SHA384"),
     ID("Cryptofuzz/Digest/SHA512"),
     //ID("Cryptofuzz/Digest/MD4"),
-    //ID("Cryptofuzz/Digest/MD5"),
+    ID("Cryptofuzz/Digest/MD5"),
     //ID("Cryptofuzz/Digest/MDC2"),
     //ID("Cryptofuzz/Digest/RIPEMD160"),
     //ID("Cryptofuzz/Digest/WHIRLPOOL"),

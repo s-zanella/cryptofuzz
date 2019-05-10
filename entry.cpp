@@ -57,7 +57,7 @@ extern "C" int LLVMFuzzerInitialize(int *argc, char ***argv) {
 
     driver = std::make_shared<cryptofuzz::Driver>();
 
-#if defined(CRYPTOFUZZ_OPENSSL)
+#if defined(CRYPTOFUZZ_OPENSSL) || defined(CRYPTOFUZZ_LIBRESSL) || defined(CRYPTOFUZZ_BORINGSSL)
     driver->LoadModule( std::make_shared<cryptofuzz::module::OpenSSL>() );
 #endif
 

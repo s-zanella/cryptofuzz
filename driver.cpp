@@ -38,10 +38,10 @@ void Driver::Run(const uint8_t* data, const size_t size) const {
             case    ID("Cryptofuzz/Operation/Digest"):
                 executorDigest.Run(ds, payload.data(), payload.size());
                 break;
-#if 0
             case    ID("Cryptofuzz/Operation/HMAC"):
                 executorHMAC.Run(ds, payload.data(), payload.size());
                 break;
+#if 0
             case    ID("Cryptofuzz/Operation/CMAC"):
                 executorCMAC.Run(ds, payload.data(), payload.size());
                 break;
