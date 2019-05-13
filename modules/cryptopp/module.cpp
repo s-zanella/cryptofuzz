@@ -1,5 +1,6 @@
 #include "module.h"
 #include <cryptofuzz/util.h>
+#include <cryptofuzz/repository.h>
 #include <cryptlib.h>
 #include <sha.h>
 #include <shake.h>
@@ -12,6 +13,8 @@
 #include <blake2.h>
 #include <tiger.h>
 #include <keccak.h>
+#include <crc.h>
+#include <adler32.h>
 #include <hmac.h>
 #include <twofish.h>
 #include <serpent.h>
@@ -109,6 +112,12 @@ std::optional<component::Digest> CryptoPP::OpDigest(operation::Digest& op) {
             break;
         case CF_DIGEST("KECCAK_512"):
             hash = std::make_unique<::CryptoPP::Keccak_512>();
+            break;
+        case CF_DIGEST("CRC32"):
+            hash = std::make_unique<::CryptoPP::CRC32>();
+            break;
+        case CF_DIGEST("ADLER32"):
+            hash = std::make_unique<::CryptoPP::Adler32>();
             break;
     }
 
@@ -990,6 +999,9 @@ end:
                     }
                     break;
 
+                /* Disabled because raw AES has been observed to output 15 bytes for
+                 * a 16 byte input. Needs further inspection.. */
+#if 0
                 /* Raw */
                 case    CF_CIPHER("AES"):
                     {
@@ -1011,6 +1023,7 @@ end:
                         ret = CryptoPP_detail::CryptRaw< ::CryptoPP::GOST >(op);
                     }
                     break;
+#endif
             }
         } catch ( ... ) { }
     }

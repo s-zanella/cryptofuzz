@@ -96,7 +96,10 @@ If you have more tests, please add them!
 - OpenSSL: [Overlong tag buffer leaves memory uninitialized in CCM mode](https://github.com/openssl/openssl/pull/8810)
 - OpenSSL: [Buffer write overflow when passing large RC5 key](https://github.com/openssl/openssl/pull/8834)
 - OpenSSL: [Hang after particular sequence of operations](https://github.com/openssl/openssl/issues/8827)
-- LibreSSL: Overlong tag buffer leaves memory uninitialized in CCM mode (TBA)
-- LibreSSL: AES GCM context copy crash (TBA)
-- LibreSSL: Streebog wrong output (TBA)
+- LibreSSL: [Overlong tag buffer leaves memory uninitialized in CCM mode](https://cvsweb.openbsd.org/src/lib/libcrypto/modes/ccm128.c?rev=1.5&content-type=text/x-cvsweb-markup)
+- LibreSSL: [AES GCM context copy crash](https://cvsweb.openbsd.org/src/lib/libcrypto/evp/e_aes.c?rev=1.38&content-type=text/x-cvsweb-markup)
+- LibreSSL: [Streebog wrong output](https://cvsweb.openbsd.org/cgi-bin/cvsweb/src/lib/libcrypto/gost/streebog.c?rev=1.6&content-type=text/x-cvsweb-markup)
 - OpenSSL: [EVP_EncryptUpdate, EVP_EncryptFinal_ex branching on uninitialized memory](https://github.com/openssl/openssl/pull/8874)
+- libgcrypt: [Invalid output of MD4, MD5, RIPEMD160](https://lists.gnupg.org/pipermail/gcrypt-devel/2019-May/004712.html)
+- OpenSSL: RC5 signed integer overflow, TBA
+- LibreSSL: AES CCM context copy crash, TBA
