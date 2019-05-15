@@ -108,8 +108,11 @@ template<> void ExecutorBase<component::Ciphertext, operation::SymmetricEncrypt>
             case    ID("Cryptofuzz/Cipher/ARIA_128_GCM"):
             case    ID("Cryptofuzz/Cipher/ARIA_192_GCM"):
             case    ID("Cryptofuzz/Cipher/ARIA_256_GCM"):
-                tryDecrypt = false;
-                break;
+                if ( module->ID == ID("Cryptofuzz/Module/OpenSSL") ) {
+                    // Because OpenSSL BIO API doesn't support AEAD tags or AAD
+                    tryDecrypt = false;
+                    break;
+                }
         }
 
         if ( tryDecrypt == true ) {
@@ -168,7 +171,7 @@ template<> void ExecutorBase<component::MAC, operation::SymmetricDecrypt>::updat
 template<> void ExecutorBase<component::MAC, operation::SymmetricDecrypt>::postprocess(std::shared_ptr<Module> module, operation::SymmetricDecrypt& op, const ExecutorBase<component::MAC, operation::SymmetricDecrypt>::ResultPair& result) const {
     (void)module;
     (void)op;
-    
+
     if ( result.second != std::nullopt ) {
         fuzzing::memory::memory_test_msan(result.second->GetPtr(), result.second->GetSize());
     }
@@ -210,7 +213,7 @@ template<> void ExecutorBase<component::Key, operation::KDF_HKDF>::updateExtraCo
 template<> void ExecutorBase<component::Key, operation::KDF_HKDF>::postprocess(std::shared_ptr<Module> module, operation::KDF_HKDF& op, const ExecutorBase<component::Key, operation::KDF_HKDF>::ResultPair& result) const {
     (void)module;
     (void)op;
-    
+
     if ( result.second != std::nullopt ) {
         fuzzing::memory::memory_test_msan(result.second->GetPtr(), result.second->GetSize());
     }
@@ -231,7 +234,7 @@ template<> void ExecutorBase<component::Key, operation::KDF_PBKDF2>::updateExtra
 template<> void ExecutorBase<component::Key, operation::KDF_PBKDF2>::postprocess(std::shared_ptr<Module> module, operation::KDF_PBKDF2& op, const ExecutorBase<component::Key, operation::KDF_PBKDF2>::ResultPair& result) const {
     (void)module;
     (void)op;
-    
+
     if ( result.second != std::nullopt ) {
         fuzzing::memory::memory_test_msan(result.second->GetPtr(), result.second->GetSize());
     }
@@ -252,7 +255,7 @@ template<> void ExecutorBase<component::Key, operation::KDF_TLS1_PRF>::updateExt
 template<> void ExecutorBase<component::Key, operation::KDF_TLS1_PRF>::postprocess(std::shared_ptr<Module> module, operation::KDF_TLS1_PRF& op, const ExecutorBase<component::Key, operation::KDF_TLS1_PRF>::ResultPair& result) const {
     (void)module;
     (void)op;
-    
+
     if ( result.second != std::nullopt ) {
         fuzzing::memory::memory_test_msan(result.second->GetPtr(), result.second->GetSize());
     }
@@ -275,7 +278,7 @@ template<> void ExecutorBase<component::Signature, operation::Sign>::postprocess
     if ( result.second != std::nullopt ) {
         fuzzing::memory::memory_test_msan(result.second->GetPtr(), result.second->GetSize());
     }
-    
+
 #if 0
     if ( result.second != std::nullopt ) {
         printf("Result size %zu\n", result.second->GetSize());
@@ -313,7 +316,7 @@ template<> void ExecutorBase<bool, operation::Verify>::postprocess(std::shared_p
     (void)module;
     (void)op;
     (void)result;
-    
+
     /* No postprocessing */
 }
 
@@ -426,6 +429,7 @@ void ExecutorBase<ResultType, OperationType>::Run(Datasource& parentDs, const ui
 
     do {
         auto op = getOp(&parentDs, data, size);
+        //printf("Operation:\n%s\n", op.ToString().c_str());
         auto module = getModule(parentDs);
         if ( module == nullptr ) {
             continue;
@@ -439,12 +443,10 @@ void ExecutorBase<ResultType, OperationType>::Run(Datasource& parentDs, const ui
         }
     } while ( parentDs.Get<bool>() == true );
 
-
     /* Enable this to run every operation on every loaded module */
-#if 0
+#if 1
     {
         std::vector< std::pair<std::shared_ptr<Module>, OperationType> > newOperations;
-
         const size_t operationsSize = operations.size();
         for (size_t i = 0; i < operationsSize; i++) {
             for (const auto& m : modules ) {
@@ -505,16 +507,16 @@ void ExecutorBase<ResultType, OperationType>::Run(Datasource& parentDs, const ui
 }
 
 /* Explicit template instantiation */
-template class ExecutorBase<component::Digest, operation::Digest>; 
-template class ExecutorBase<component::MAC, operation::HMAC>; 
-template class ExecutorBase<component::MAC, operation::CMAC>; 
-template class ExecutorBase<component::Ciphertext, operation::SymmetricEncrypt>; 
-template class ExecutorBase<component::Cleartext, operation::SymmetricDecrypt>; 
-template class ExecutorBase<component::Key, operation::KDF_SCRYPT>; 
-template class ExecutorBase<component::Key, operation::KDF_HKDF>; 
-template class ExecutorBase<component::Key, operation::KDF_TLS1_PRF>; 
-template class ExecutorBase<component::Key, operation::KDF_PBKDF2>; 
-template class ExecutorBase<component::Signature, operation::Sign>; 
-template class ExecutorBase<bool, operation::Verify>; 
+template class ExecutorBase<component::Digest, operation::Digest>;
+template class ExecutorBase<component::MAC, operation::HMAC>;
+template class ExecutorBase<component::MAC, operation::CMAC>;
+template class ExecutorBase<component::Ciphertext, operation::SymmetricEncrypt>;
+template class ExecutorBase<component::Cleartext, operation::SymmetricDecrypt>;
+template class ExecutorBase<component::Key, operation::KDF_SCRYPT>;
+template class ExecutorBase<component::Key, operation::KDF_HKDF>;
+template class ExecutorBase<component::Key, operation::KDF_TLS1_PRF>;
+template class ExecutorBase<component::Key, operation::KDF_PBKDF2>;
+template class ExecutorBase<component::Signature, operation::Sign>;
+template class ExecutorBase<bool, operation::Verify>;
 
 } /* namespace cryptofuzz */

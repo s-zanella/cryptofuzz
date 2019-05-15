@@ -41,9 +41,8 @@ void Driver::Run(const uint8_t* data, const size_t size) const {
             case    ID("Cryptofuzz/Operation/HMAC"):
                 executorHMAC.Run(ds, payload.data(), payload.size());
                 break;
-#if 0
-            case    ID("Cryptofuzz/Operation/CMAC"):
-                executorCMAC.Run(ds, payload.data(), payload.size());
+            case    ID("Cryptofuzz/Operation/KDF_HKDF"):
+                executorKDF_HKDF.Run(ds, payload.data(), payload.size());
                 break;
             case    ID("Cryptofuzz/Operation/SymmetricEncrypt"):
                 executorSymmetricEncrypt.Run(ds, payload.data(), payload.size());
@@ -51,11 +50,12 @@ void Driver::Run(const uint8_t* data, const size_t size) const {
             case    ID("Cryptofuzz/Operation/SymmetricDecrypt"):
                 executorSymmetricDecrypt.Run(ds, payload.data(), payload.size());
                 break;
+#if 0
+            case    ID("Cryptofuzz/Operation/CMAC"):
+                executorCMAC.Run(ds, payload.data(), payload.size());
+                break;
             case    ID("Cryptofuzz/Operation/KDF_SCRYPT"):
                 executorKDF_SCRYPT.Run(ds, payload.data(), payload.size());
-                break;
-            case    ID("Cryptofuzz/Operation/KDF_HKDF"):
-                executorKDF_HKDF.Run(ds, payload.data(), payload.size());
                 break;
             case    ID("Cryptofuzz/Operation/KDF_TLS1_PRF"):
                 executorKDF_TLS1_PRF.Run(ds, payload.data(), payload.size());

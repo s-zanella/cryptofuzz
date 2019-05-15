@@ -36,7 +36,12 @@ static void test_ChaCha20_Poly1305_IV(const operation::SymmetricEncrypt& op, con
 }
 
 void test(const operation::SymmetricEncrypt& op, const std::optional<component::Ciphertext>& result) {
+#if 0
     test_ChaCha20_Poly1305_IV(op, result);
+#else
+    (void)op;
+    (void)result;
+#endif
 }
 
 void test(const operation::SymmetricDecrypt& op, const std::optional<component::Cleartext>& result) {
