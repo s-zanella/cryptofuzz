@@ -20,7 +20,7 @@ static const std::vector<uint64_t> digestTypes = {
     ID("Cryptofuzz/Digest/SHA256"),
     ID("Cryptofuzz/Digest/SHA384"),
     ID("Cryptofuzz/Digest/SHA512"),
-    //ID("Cryptofuzz/Digest/MD4"),
+    ID("Cryptofuzz/Digest/MD4"),
     ID("Cryptofuzz/Digest/MD5"),
     //ID("Cryptofuzz/Digest/MDC2"),
     //ID("Cryptofuzz/Digest/RIPEMD160"),
@@ -39,150 +39,152 @@ static const std::vector<uint64_t> digestTypes = {
 };
 
 static const std::vector<uint64_t> cipherTypes = {
-    ID("Cryptofuzz/Cipher/AES_128_CBC"),
-    ID("Cryptofuzz/Cipher/AES_128_CBC_HMAC_SHA1"),
-    ID("Cryptofuzz/Cipher/AES_128_CBC_HMAC_SHA256"),
-    ID("Cryptofuzz/Cipher/AES_128_CCM"),
-    ID("Cryptofuzz/Cipher/AES_128_CFB"),
-    ID("Cryptofuzz/Cipher/AES_128_CFB1"),
-    ID("Cryptofuzz/Cipher/AES_128_CFB8"),
-    ID("Cryptofuzz/Cipher/AES_128_CTR"),
-    ID("Cryptofuzz/Cipher/AES_128_ECB"),
+    //ID("Cryptofuzz/Cipher/AES_128_CBC"),
+    //ID("Cryptofuzz/Cipher/AES_128_CBC_HMAC_SHA1"),
+    //ID("Cryptofuzz/Cipher/AES_128_CBC_HMAC_SHA256"),
+    //ID("Cryptofuzz/Cipher/AES_128_CCM"),
+    //ID("Cryptofuzz/Cipher/AES_128_CFB"),
+    //ID("Cryptofuzz/Cipher/AES_128_CFB1"),
+    //ID("Cryptofuzz/Cipher/AES_128_CFB8"),
+    //ID("Cryptofuzz/Cipher/AES_128_CTR"),
+    //ID("Cryptofuzz/Cipher/AES_128_ECB"),
     ID("Cryptofuzz/Cipher/AES_128_GCM"),
-    ID("Cryptofuzz/Cipher/AES_128_OCB"),
-    ID("Cryptofuzz/Cipher/AES_128_OFB"),
-    ID("Cryptofuzz/Cipher/AES_128_WRAP"),
-    ID("Cryptofuzz/Cipher/AES_128_WRAP_PAD"),
-    ID("Cryptofuzz/Cipher/AES_128_XTS"),
-    ID("Cryptofuzz/Cipher/AES_192_CBC"),
-    ID("Cryptofuzz/Cipher/AES_192_CCM"),
-    ID("Cryptofuzz/Cipher/AES_192_CFB"),
-    ID("Cryptofuzz/Cipher/AES_192_CFB1"),
-    ID("Cryptofuzz/Cipher/AES_192_CFB8"),
-    ID("Cryptofuzz/Cipher/AES_192_CTR"),
-    ID("Cryptofuzz/Cipher/AES_192_ECB"),
-    ID("Cryptofuzz/Cipher/AES_192_GCM"),
-    ID("Cryptofuzz/Cipher/AES_192_OCB"),
-    ID("Cryptofuzz/Cipher/AES_192_OFB"),
-    ID("Cryptofuzz/Cipher/AES_192_WRAP"),
-    ID("Cryptofuzz/Cipher/AES_192_WRAP_PAD"),
-    ID("Cryptofuzz/Cipher/AES_256_CBC"),
-    ID("Cryptofuzz/Cipher/AES_256_CBC_HMAC_SHA1"),
-    ID("Cryptofuzz/Cipher/AES_256_CBC_HMAC_SHA256"),
-    ID("Cryptofuzz/Cipher/AES_256_CCM"),
-    ID("Cryptofuzz/Cipher/AES_256_CFB"),
-    ID("Cryptofuzz/Cipher/AES_256_CFB1"),
-    ID("Cryptofuzz/Cipher/AES_256_CFB8"),
-    ID("Cryptofuzz/Cipher/AES_256_CTR"),
-    ID("Cryptofuzz/Cipher/AES_256_ECB"),
+    //ID("Cryptofuzz/Cipher/AES_128_OCB"),
+    //ID("Cryptofuzz/Cipher/AES_128_OFB"),
+    //ID("Cryptofuzz/Cipher/AES_128_WRAP"),
+    //ID("Cryptofuzz/Cipher/AES_128_WRAP_PAD"),
+    //ID("Cryptofuzz/Cipher/AES_128_XTS"),
+    //ID("Cryptofuzz/Cipher/AES_192_CBC"),
+    //ID("Cryptofuzz/Cipher/AES_192_CCM"),
+    //ID("Cryptofuzz/Cipher/AES_192_CFB"),
+    //ID("Cryptofuzz/Cipher/AES_192_CFB1"),
+    //ID("Cryptofuzz/Cipher/AES_192_CFB8"),
+    //ID("Cryptofuzz/Cipher/AES_192_CTR"),
+    //ID("Cryptofuzz/Cipher/AES_192_ECB"),
+    //ID("Cryptofuzz/Cipher/AES_192_GCM"),
+    //ID("Cryptofuzz/Cipher/AES_192_OCB"),
+    //ID("Cryptofuzz/Cipher/AES_192_OFB"),
+    //ID("Cryptofuzz/Cipher/AES_192_WRAP"),
+    //ID("Cryptofuzz/Cipher/AES_192_WRAP_PAD"),
+    //ID("Cryptofuzz/Cipher/AES_256_CBC"),
+    //ID("Cryptofuzz/Cipher/AES_256_CBC_HMAC_SHA1"),
+    //ID("Cryptofuzz/Cipher/AES_256_CBC_HMAC_SHA256"),
+    //ID("Cryptofuzz/Cipher/AES_256_CCM"),
+    //ID("Cryptofuzz/Cipher/AES_256_CFB"),
+    //ID("Cryptofuzz/Cipher/AES_256_CFB1"),
+    //ID("Cryptofuzz/Cipher/AES_256_CFB8"),
+    //ID("Cryptofuzz/Cipher/AES_256_CTR"),
+    //ID("Cryptofuzz/Cipher/AES_256_ECB"),
     ID("Cryptofuzz/Cipher/AES_256_GCM"),
-    ID("Cryptofuzz/Cipher/AES_256_OCB"),
-    ID("Cryptofuzz/Cipher/AES_256_OFB"),
-    ID("Cryptofuzz/Cipher/AES_256_WRAP"),
-    ID("Cryptofuzz/Cipher/AES_256_WRAP_PAD"),
-    ID("Cryptofuzz/Cipher/AES_256_XTS"),
-    ID("Cryptofuzz/Cipher/ARIA_128_CBC"),
-    ID("Cryptofuzz/Cipher/ARIA_128_CCM"),
-    ID("Cryptofuzz/Cipher/ARIA_128_CFB"),
-    ID("Cryptofuzz/Cipher/ARIA_128_CFB1"),
-    ID("Cryptofuzz/Cipher/ARIA_128_CFB8"),
-    ID("Cryptofuzz/Cipher/ARIA_128_CTR"),
-    ID("Cryptofuzz/Cipher/ARIA_128_ECB"),
-    ID("Cryptofuzz/Cipher/ARIA_128_GCM"),
-    ID("Cryptofuzz/Cipher/ARIA_128_OFB"),
-    ID("Cryptofuzz/Cipher/ARIA_192_CBC"),
-    ID("Cryptofuzz/Cipher/ARIA_192_CCM"),
-    ID("Cryptofuzz/Cipher/ARIA_192_CFB"),
-    ID("Cryptofuzz/Cipher/ARIA_192_CFB1"),
-    ID("Cryptofuzz/Cipher/ARIA_192_CFB8"),
-    ID("Cryptofuzz/Cipher/ARIA_192_CTR"),
-    ID("Cryptofuzz/Cipher/ARIA_192_ECB"),
-    ID("Cryptofuzz/Cipher/ARIA_192_GCM"),
-    ID("Cryptofuzz/Cipher/ARIA_192_OFB"),
-    ID("Cryptofuzz/Cipher/ARIA_256_CBC"),
-    ID("Cryptofuzz/Cipher/ARIA_256_CCM"),
-    ID("Cryptofuzz/Cipher/ARIA_256_CFB"),
-    ID("Cryptofuzz/Cipher/ARIA_256_CFB1"),
-    ID("Cryptofuzz/Cipher/ARIA_256_CFB8"),
-    ID("Cryptofuzz/Cipher/ARIA_256_CTR"),
-    ID("Cryptofuzz/Cipher/ARIA_256_ECB"),
-    ID("Cryptofuzz/Cipher/ARIA_256_GCM"),
-    ID("Cryptofuzz/Cipher/ARIA_256_OFB"),
-    ID("Cryptofuzz/Cipher/BF_CBC"),
-    ID("Cryptofuzz/Cipher/BF_CFB"),
-    ID("Cryptofuzz/Cipher/BF_ECB"),
-    ID("Cryptofuzz/Cipher/BF_OFB"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_128_CBC"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_128_CFB"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_128_CFB1"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_128_CFB8"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_128_CTR"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_128_ECB"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_128_OFB"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_192_CBC"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_192_CFB"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_192_CFB1"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_192_CFB8"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_192_CTR"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_192_ECB"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_192_OFB"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_256_CBC"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_256_CFB"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_256_CFB1"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_256_CFB8"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_256_CTR"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_256_ECB"),
-    ID("Cryptofuzz/Cipher/CAMELLIA_256_OFB"),
-    ID("Cryptofuzz/Cipher/CAST5_CBC"),
-    ID("Cryptofuzz/Cipher/CAST5_CFB"),
-    ID("Cryptofuzz/Cipher/CAST5_ECB"),
-    ID("Cryptofuzz/Cipher/CAST5_OFB"),
-    ID("Cryptofuzz/Cipher/CHACHA20"),
+    //ID("Cryptofuzz/Cipher/AES_256_OCB"),
+    //ID("Cryptofuzz/Cipher/AES_256_OFB"),
+    //ID("Cryptofuzz/Cipher/AES_256_WRAP"),
+    //ID("Cryptofuzz/Cipher/AES_256_WRAP_PAD"),
+    //ID("Cryptofuzz/Cipher/AES_256_XTS"),
+    //ID("Cryptofuzz/Cipher/ARIA_128_CBC"),
+    //ID("Cryptofuzz/Cipher/ARIA_128_CCM"),
+    //ID("Cryptofuzz/Cipher/ARIA_128_CFB"),
+    //ID("Cryptofuzz/Cipher/ARIA_128_CFB1"),
+    //ID("Cryptofuzz/Cipher/ARIA_128_CFB8"),
+    //ID("Cryptofuzz/Cipher/ARIA_128_CTR"),
+    //ID("Cryptofuzz/Cipher/ARIA_128_ECB"),
+    //ID("Cryptofuzz/Cipher/ARIA_128_GCM"),
+    //ID("Cryptofuzz/Cipher/ARIA_128_OFB"),
+    //ID("Cryptofuzz/Cipher/ARIA_192_CBC"),
+    //ID("Cryptofuzz/Cipher/ARIA_192_CCM"),
+    //ID("Cryptofuzz/Cipher/ARIA_192_CFB"),
+    //ID("Cryptofuzz/Cipher/ARIA_192_CFB1"),
+    //ID("Cryptofuzz/Cipher/ARIA_192_CFB8"),
+    //ID("Cryptofuzz/Cipher/ARIA_192_CTR"),
+    //ID("Cryptofuzz/Cipher/ARIA_192_ECB"),
+    //ID("Cryptofuzz/Cipher/ARIA_192_GCM"),
+    //ID("Cryptofuzz/Cipher/ARIA_192_OFB"),
+    //ID("Cryptofuzz/Cipher/ARIA_256_CBC"),
+    //ID("Cryptofuzz/Cipher/ARIA_256_CCM"),
+    //ID("Cryptofuzz/Cipher/ARIA_256_CFB"),
+    //ID("Cryptofuzz/Cipher/ARIA_256_CFB1"),
+    //ID("Cryptofuzz/Cipher/ARIA_256_CFB8"),
+    //ID("Cryptofuzz/Cipher/ARIA_256_CTR"),
+    //ID("Cryptofuzz/Cipher/ARIA_256_ECB"),
+    //ID("Cryptofuzz/Cipher/ARIA_256_GCM"),
+    //ID("Cryptofuzz/Cipher/ARIA_256_OFB"),
+    //ID("Cryptofuzz/Cipher/BF_CBC"),
+    //ID("Cryptofuzz/Cipher/BF_CFB"),
+    //ID("Cryptofuzz/Cipher/BF_ECB"),
+    //ID("Cryptofuzz/Cipher/BF_OFB"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_128_CBC"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_128_CFB"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_128_CFB1"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_128_CFB8"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_128_CTR"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_128_ECB"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_128_OFB"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_192_CBC"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_192_CFB"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_192_CFB1"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_192_CFB8"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_192_CTR"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_192_ECB"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_192_OFB"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_256_CBC"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_256_CFB"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_256_CFB1"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_256_CFB8"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_256_CTR"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_256_ECB"),
+    //ID("Cryptofuzz/Cipher/CAMELLIA_256_OFB"),
+    //ID("Cryptofuzz/Cipher/CAST5_CBC"),
+    //ID("Cryptofuzz/Cipher/CAST5_CFB"),
+    //ID("Cryptofuzz/Cipher/CAST5_ECB"),
+    //ID("Cryptofuzz/Cipher/CAST5_OFB"),
+    //ID("Cryptofuzz/Cipher/CHACHA20"),
     ID("Cryptofuzz/Cipher/CHACHA20_POLY1305"),
-    ID("Cryptofuzz/Cipher/DESX_CBC"),
-    ID("Cryptofuzz/Cipher/DES_CBC"),
-    ID("Cryptofuzz/Cipher/DES_CFB"),
-    ID("Cryptofuzz/Cipher/DES_CFB1"),
-    ID("Cryptofuzz/Cipher/DES_CFB8"),
-    ID("Cryptofuzz/Cipher/DES_ECB"),
-    ID("Cryptofuzz/Cipher/DES_EDE"),
-    ID("Cryptofuzz/Cipher/DES_EDE3"),
-    ID("Cryptofuzz/Cipher/DES_EDE3_CBC"),
-    ID("Cryptofuzz/Cipher/DES_EDE3_CFB"),
-    ID("Cryptofuzz/Cipher/DES_EDE3_CFB1"),
-    ID("Cryptofuzz/Cipher/DES_EDE3_CFB8"),
-    ID("Cryptofuzz/Cipher/DES_EDE3_OFB"),
-    ID("Cryptofuzz/Cipher/DES_EDE3_WRAP"),
-    ID("Cryptofuzz/Cipher/DES_EDE_CBC"),
-    ID("Cryptofuzz/Cipher/DES_EDE_CFB"),
-    ID("Cryptofuzz/Cipher/DES_EDE_OFB"),
-    ID("Cryptofuzz/Cipher/DES_OFB"),
-    ID("Cryptofuzz/Cipher/IDEA_CBC"),
-    ID("Cryptofuzz/Cipher/IDEA_CFB"),
-    ID("Cryptofuzz/Cipher/IDEA_ECB"),
-    ID("Cryptofuzz/Cipher/IDEA_OFB"),
-    ID("Cryptofuzz/Cipher/RC2_40_CBC"),
-    ID("Cryptofuzz/Cipher/RC2_64_CBC"),
-    ID("Cryptofuzz/Cipher/RC2_CBC"),
-    ID("Cryptofuzz/Cipher/RC2_CFB"),
-    ID("Cryptofuzz/Cipher/RC2_ECB"),
-    ID("Cryptofuzz/Cipher/RC2_OFB"),
-    ID("Cryptofuzz/Cipher/RC4"),
-    ID("Cryptofuzz/Cipher/RC4_40"),
-    ID("Cryptofuzz/Cipher/RC4_HMAC_MD5"),
-    ID("Cryptofuzz/Cipher/RC5_32_12_16_CBC"),
-    ID("Cryptofuzz/Cipher/RC5_32_12_16_CFB"),
-    ID("Cryptofuzz/Cipher/RC5_32_12_16_ECB"),
-    ID("Cryptofuzz/Cipher/RC5_32_12_16_OFB"),
-    ID("Cryptofuzz/Cipher/SEED_CBC"),
-    ID("Cryptofuzz/Cipher/SEED_CFB"),
-    ID("Cryptofuzz/Cipher/SEED_ECB"),
-    ID("Cryptofuzz/Cipher/SEED_OFB"),
-    ID("Cryptofuzz/Cipher/SM4_CBC"),
-    ID("Cryptofuzz/Cipher/SM4_CFB"),
-    ID("Cryptofuzz/Cipher/SM4_CTR"),
-    ID("Cryptofuzz/Cipher/SM4_ECB"),
-    ID("Cryptofuzz/Cipher/SM4_OFB"),
+    ID("Cryptofuzz/Cipher/CHACHA20_POLY1305_LIBSODIUM"),
+    ID("Cryptofuzz/Cipher/XCHACHA20_POLY1305"),
+    //ID("Cryptofuzz/Cipher/DESX_CBC"),
+    //ID("Cryptofuzz/Cipher/DES_CBC"),
+    //ID("Cryptofuzz/Cipher/DES_CFB"),
+    //ID("Cryptofuzz/Cipher/DES_CFB1"),
+    //ID("Cryptofuzz/Cipher/DES_CFB8"),
+    //ID("Cryptofuzz/Cipher/DES_ECB"),
+    //ID("Cryptofuzz/Cipher/DES_EDE"),
+    //ID("Cryptofuzz/Cipher/DES_EDE3"),
+    //ID("Cryptofuzz/Cipher/DES_EDE3_CBC"),
+    //ID("Cryptofuzz/Cipher/DES_EDE3_CFB"),
+    //ID("Cryptofuzz/Cipher/DES_EDE3_CFB1"),
+    //ID("Cryptofuzz/Cipher/DES_EDE3_CFB8"),
+    //ID("Cryptofuzz/Cipher/DES_EDE3_OFB"),
+    //ID("Cryptofuzz/Cipher/DES_EDE3_WRAP"),
+    //ID("Cryptofuzz/Cipher/DES_EDE_CBC"),
+    //ID("Cryptofuzz/Cipher/DES_EDE_CFB"),
+    //ID("Cryptofuzz/Cipher/DES_EDE_OFB"),
+    //ID("Cryptofuzz/Cipher/DES_OFB"),
+    //ID("Cryptofuzz/Cipher/IDEA_CBC"),
+    //ID("Cryptofuzz/Cipher/IDEA_CFB"),
+    //ID("Cryptofuzz/Cipher/IDEA_ECB"),
+    //ID("Cryptofuzz/Cipher/IDEA_OFB"),
+    //ID("Cryptofuzz/Cipher/RC2_40_CBC"),
+    //ID("Cryptofuzz/Cipher/RC2_64_CBC"),
+    //ID("Cryptofuzz/Cipher/RC2_CBC"),
+    //ID("Cryptofuzz/Cipher/RC2_CFB"),
+    //ID("Cryptofuzz/Cipher/RC2_ECB"),
+    //ID("Cryptofuzz/Cipher/RC2_OFB"),
+    //ID("Cryptofuzz/Cipher/RC4"),
+    //ID("Cryptofuzz/Cipher/RC4_40"),
+    //ID("Cryptofuzz/Cipher/RC4_HMAC_MD5"),
+    //ID("Cryptofuzz/Cipher/RC5_32_12_16_CBC"),
+    //ID("Cryptofuzz/Cipher/RC5_32_12_16_CFB"),
+    //ID("Cryptofuzz/Cipher/RC5_32_12_16_ECB"),
+    //ID("Cryptofuzz/Cipher/RC5_32_12_16_OFB"),
+    //ID("Cryptofuzz/Cipher/SEED_CBC"),
+    //ID("Cryptofuzz/Cipher/SEED_CFB"),
+    //ID("Cryptofuzz/Cipher/SEED_ECB"),
+    //ID("Cryptofuzz/Cipher/SEED_OFB"),
+    //ID("Cryptofuzz/Cipher/SM4_CBC"),
+    //ID("Cryptofuzz/Cipher/SM4_CFB"),
+    //ID("Cryptofuzz/Cipher/SM4_CTR"),
+    //ID("Cryptofuzz/Cipher/SM4_ECB"),
+    //ID("Cryptofuzz/Cipher/SM4_OFB"),
 };
 static void write(const std::string corpusDirectory, const std::vector<uint8_t>& data) {
     counter++;
@@ -200,6 +202,13 @@ static void emit(std::vector<uint8_t>& to, const std::vector<uint8_t>& from) {
 }
 
 static void emit(std::vector<uint8_t>& to, const uint64_t from) {
+    std::vector<uint8_t> fromV(sizeof(from), 0);
+    memcpy(fromV.data(), &from, sizeof(from));
+
+    emit(to, fromV);
+}
+
+static void emit(std::vector<uint8_t>& to, const bool from) {
     std::vector<uint8_t> fromV(sizeof(from), 0);
     memcpy(fromV.data(), &from, sizeof(from));
 
@@ -235,6 +244,7 @@ static void generate_Digest_inner(const std::string corpusDirectory, const size_
 
         {
             emit(toWrite, moduleID);
+            emit(toWrite, false);
         }
     }
 
@@ -264,19 +274,29 @@ static void generate_SymmetricEncrypt_inner(const std::string corpusDirectory, c
             std::vector<uint8_t> payload;
 
             {
-                std::vector<uint8_t> cleartext(cleartextSize, 0);
+                std::vector<uint8_t> cleartext(cleartextSize, 0xAA);
                 emit(payload, cleartext);
 
-                std::vector<uint8_t> iv(ivSize, 0);
+                std::vector<uint8_t> iv(ivSize, 0xBB);
                 emit(payload, iv);
 
-                std::vector<uint8_t> key(keySize, 0);
+                std::vector<uint8_t> key(keySize, 0xCC);
                 emit(payload, key);
 
                 emit(payload, cipherType);
 
-                static const uint64_t ciphertextSize = 102400;
+                emit(payload, false);
+
+                std::vector<uint8_t> aad(4, 0xDD);
+                emit(payload, aad);
+
+                static const uint64_t ciphertextSize = cleartextSize + 32;
                 emit(payload, ciphertextSize);
+
+                emit(payload, false);
+
+                static const uint64_t tagSize = 32;
+                emit(payload, tagSize);
             }
 
             emit(toWrite, payload);
@@ -290,6 +310,7 @@ static void generate_SymmetricEncrypt_inner(const std::string corpusDirectory, c
 
         {
             emit(toWrite, moduleID);
+            emit(toWrite, false);
         }
     }
 
@@ -334,6 +355,7 @@ static void generate_HMAC_inner(const std::string corpusDirectory, const size_t 
 
         {
             emit(toWrite, moduleID);
+            emit(toWrite, false);
         }
     }
 
@@ -393,6 +415,7 @@ static void generate_CMAC_inner(const std::string corpusDirectory, const size_t 
 
         {
             emit(toWrite, moduleID);
+            emit(toWrite, false);
         }
     }
 
@@ -437,8 +460,9 @@ int main(int argc, char** argv)
     std::string corpusDirectory = argv[1];
 
     static const std::vector<uint64_t> moduleIDs = {
-        ID("Cryptofuzz/Module/OpenSSL"),
-        ID("Cryptofuzz/Module/libsodium"),
+        //ID("Cryptofuzz/Module/OpenSSL"),
+        //ID("Cryptofuzz/Module/libsodium"),
+        // No need for more than one module (see #if 1 at executor.cpp:447)
         ID("Cryptofuzz/Module/EverCrypt")
     };
 
@@ -446,9 +470,9 @@ int main(int argc, char** argv)
 
     for (const auto& moduleID : moduleIDs) {
         generate_Digest(corpusDirectory, moduleID);
-        //generate_HMAC(corpusDirectory, moduleID);
+        generate_HMAC(corpusDirectory, moduleID);
         //generate_CMAC(corpusDirectory, moduleID);
-        //generate_SymmetricEncrypt(corpusDirectory, moduleID);
+        generate_SymmetricEncrypt(corpusDirectory, moduleID);
     }
 
     return 0;
