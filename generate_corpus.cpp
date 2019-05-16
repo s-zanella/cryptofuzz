@@ -11,7 +11,7 @@ size_t counter = 0;
 
 static const std::vector<size_t> sizes = {
     //0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512,
-    0, 1, 2, 4, 8, 16, 32
+    0, 1, 2, 4, 8, 12, 16, 32
 };
 
 static const std::vector<uint64_t> digestTypes = {
