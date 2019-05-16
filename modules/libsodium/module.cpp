@@ -342,13 +342,11 @@ end:
 
             size_t ciphertextAndTagSize;
             uint8_t* ciphertextAndTag = nullptr;
-            uint8_t* out = util::malloc(op.ciphertext.GetSize());
+            uint8_t* out = nullptr;
+
+            CF_CHECK_GTE(op.cleartextSize, op.ciphertext.GetSize());
 
             CF_CHECK_NE(op.tag, std::nullopt);
-            CF_CHECK_GTE(op.tag->GetSize(), TAGLEN);
-
-            CF_CHECK_EQ(op.cipher.iv.GetSize(), IVLEN);
-            CF_CHECK_EQ(op.cipher.key.GetSize(), KEYLEN);
 
             /* Concatenate ciphertext + tag */
             {
@@ -363,6 +361,11 @@ end:
                 }
             }
 
+            CF_CHECK_EQ(op.tag->GetSize(), TAGLEN);
+            CF_CHECK_EQ(op.cipher.iv.GetSize(), IVLEN);
+            CF_CHECK_EQ(op.cipher.key.GetSize(), KEYLEN);
+
+            out = util::malloc(op.cleartextSize);
 
             unsigned long long cleartext_len;
 
