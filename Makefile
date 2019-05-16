@@ -32,5 +32,8 @@ generate_dict: generate_dict.cpp
 generate_corpus: generate_corpus.cpp
 	$(CXX) $(CXXFLAGS) generate_corpus.cpp -o generate_corpus
 
+print_op : print_op.cpp
+	$(CXX) $(CXXFLAGS) util.o datasource.o operation.o repository.o print_op.cpp -o print_op
+
 clean:
 	rm -rf driver.o executor.o util.o entry.o operation.o tests.o datasource.o repository.o repository_tbl.h cryptofuzz generate_dict generate_corpus
