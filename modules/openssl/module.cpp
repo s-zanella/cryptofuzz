@@ -1867,7 +1867,7 @@ std::optional<component::Cleartext> OpenSSL::OpSymmetricDecrypt(operation::Symme
 std::optional<component::Key> OpenSSL::OpKDF_SCRYPT(operation::KDF_SCRYPT& op) {
     std::optional<component::Key> ret = std::nullopt;
     EVP_PKEY_CTX* pctx = nullptr;
-
+    size_t out_size = op.keySize;
     uint8_t* out = nullptr;
 
     /* Initialize */
@@ -1883,23 +1883,21 @@ std::optional<component::Key> OpenSSL::OpKDF_SCRYPT(operation::KDF_SCRYPT& op) {
 
     /* Process/finalize */
     {
-        size_t out_size = 0;
+        size_t max_size = 0;
         /* Check requested output size is less than or equal to maximum allowable size */
-        CF_CHECK_EQ(EVP_PKEY_derive(pctx, nullptr, &out_size) , 1);
-        CF_CHECK_LTE(op.keySize, out_size);
+        CF_CHECK_EQ(EVP_PKEY_derive(pctx, nullptr, &max_size) , 1);
+        CF_CHECK_LTE(out_size, max_size);
 
         out = util::malloc(out_size);
 
-        if (EVP_PKEY_derive(pctx, out, &out_size) != 1) {
-            util::free(out);
-            goto end;
-        }
+        CF_CHECK_EQ(EVP_PKEY_derive(pctx, out, &out_size) , 1);
 
         ret = component::Key(out, out_size);
     }
 
 end:
     EVP_PKEY_CTX_free(pctx);
+    util::free(out);
 
     return ret;
 }
@@ -1911,6 +1909,7 @@ std::optional<component::Key> OpenSSL::OpKDF_HKDF(operation::KDF_HKDF& op) {
     EVP_PKEY_CTX* pctx = nullptr;
     const EVP_MD* md = nullptr;
 
+    size_t out_size = op.keySize;
     uint8_t* out = nullptr;
 
     /* Initialize */
@@ -1926,23 +1925,21 @@ std::optional<component::Key> OpenSSL::OpKDF_HKDF(operation::KDF_HKDF& op) {
 
     /* Process/finalize */
     {
-        size_t out_size = 0;
+        size_t max_size = 0;
         /* Check requested output size is less than or equal to maximum allowable size */
-        CF_CHECK_EQ(EVP_PKEY_derive(pctx, nullptr, &out_size) , 1);
-        CF_CHECK_LTE(op.keySize, out_size);
+        CF_CHECK_EQ(EVP_PKEY_derive(pctx, nullptr, &max_size) , 1);
+        CF_CHECK_LTE(out_size, max_size);
 
         out = util::malloc(out_size);
 
-        if (EVP_PKEY_derive(pctx, out, &out_size) != 1) {
-            util::free(out);
-            goto end;
-        }
+        CF_CHECK_EQ(EVP_PKEY_derive(pctx, out, &out_size) , 1);
 
         ret = component::Key(out, out_size);
     }
 
 end:
     EVP_PKEY_CTX_free(pctx);
+    util::free(out);
 
     return ret;
 }
@@ -1954,6 +1951,7 @@ std::optional<component::Key> OpenSSL::OpKDF_TLS1_PRF(operation::KDF_TLS1_PRF& o
     EVP_PKEY_CTX* pctx = nullptr;
     const EVP_MD* md = nullptr;
 
+    size_t out_size = op.keySize;
     uint8_t* out = nullptr;
 
     /* Initialize */
@@ -1968,23 +1966,21 @@ std::optional<component::Key> OpenSSL::OpKDF_TLS1_PRF(operation::KDF_TLS1_PRF& o
 
     /* Process/finalize */
     {
-        size_t out_size = 0;
+        size_t max_size = 0;
         /* Check requested output size is less than or equal to maximum allowable size */
-        CF_CHECK_EQ(EVP_PKEY_derive(pctx, nullptr, &out_size) , 1);
-        CF_CHECK_LTE(op.keySize, out_size);
+        CF_CHECK_EQ(EVP_PKEY_derive(pctx, nullptr, &max_size) , 1);
+        CF_CHECK_LTE(out_size, max_size);
 
         out = util::malloc(out_size);
 
-        if (EVP_PKEY_derive(pctx, out, &out_size) != 1) {
-            util::free(out);
-            goto end;
-        }
+        CF_CHECK_EQ(EVP_PKEY_derive(pctx, out, &out_size) , 1);
 
         ret = component::Key(out, out_size);
     }
 
 end:
     EVP_PKEY_CTX_free(pctx);
+    util::free(out);
 
     return ret;
 }
